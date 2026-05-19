@@ -20,27 +20,19 @@ for (let i = 0; i < botoes.length; i++) {
 const contadores = document.querySelectorAll(".contador");
 
 // Datas futuras
-const tempoObjetivo1 = new Date("2026-06-05T00:00:00");
-const tempoObjetivo2 = new Date("2026-08-05T00:00:00");
-const tempoObjetivo3 = new Date("2026-10-30T00:00:00");
-const tempoObjetivo4 = new Date("2026-12-01T00:00:00");
-
 const tempos = [
-    tempoObjetivo1,
-    tempoObjetivo2,
-    tempoObjetivo3,
-    tempoObjetivo4
+    new Date("2026-06-05T00:00:00"),
+    new Date("2026-08-05T00:00:00"),
+    new Date("2026-10-30T00:00:00"),
+    new Date("2026-12-01T00:00:00")
 ];
 
 // Calcula tempo restante
 function calculaTempo(tempoObjetivo) {
 
     let tempoAtual = new Date();
-
-    // diferença em milissegundos
     let tempoFinal = tempoObjetivo - tempoAtual;
 
-    // quando acabar
     if (tempoFinal <= 0) {
         return [0, 0, 0, 0];
     }
@@ -71,12 +63,18 @@ function atualizaCronometro() {
     }
 }
 
+// variável do intervalo
+let intervalo;
+
 // Inicia cronômetro
 function comecaCronometro() {
 
     atualizaCronometro();
 
-    setInterval(atualizaCronometro, 1000);
+    // evita múltiplos intervalos
+    clearInterval(intervalo);
+
+    intervalo = setInterval(atualizaCronometro, 1000);
 }
 
 comecaCronometro();
