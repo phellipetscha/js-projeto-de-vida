@@ -22,9 +22,9 @@ const contadores = document.querySelectorAll(".contador");
 // Datas futuras
 const tempos = [
     new Date("2026-06-05T00:00:00"),
+    new Date("2026-07-05T00:00:00"),
     new Date("2026-08-05T00:00:00"),
-    new Date("2026-10-30T00:00:00"),
-    new Date("2026-12-01T00:00:00")
+    new Date("2026-09-05T00:00:00")
 ];
 
 // Calcula tempo restante
